@@ -19,7 +19,7 @@ def basic_crawling(year, month, days, query_text):
     chrome_options.add_argument("--disable-dev-shm-usage")
     #chrome_options.add_argument('headless') # 창 숨기기
     global driver
-    driver = webdriver.Chrome(executable_path ='./crawler/chromedriver_win32/chromedriver.exe',options = chrome_options)
+    driver = webdriver.Chrome(executable_path ='./module/chromedriver_win32/chromedriver.exe',options = chrome_options)
     driver.get("https://www.naver.com/")
     driver.implicitly_wait(10)
     time.sleep(2)
@@ -120,7 +120,6 @@ def basic_crawling(year, month, days, query_text):
             # 두 번째 스크롤&제목/링크/날짜 저장
             scroll_next()
             
-    driver.quit()
     global crawl_df
     crawl_df = pd.DataFrame({'url': url_list, 'title':title_list, 'date':date_list})
     crawl_df.drop_duplicates(inplace=True) #중복제거
@@ -133,6 +132,7 @@ def basic_crawling(year, month, days, query_text):
     NB_DF = crawl_df.iloc[find_naver]
     blog_links = NB_DF['url'].to_list()
     NB_DF['content'] = content_crawling(blog_links)
+    driver.quit()
     return NB_DF
 
 #셀레니움 스크롤 끝까지 내려도 계속 내리는 페이지라면
