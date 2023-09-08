@@ -6,6 +6,8 @@
 차단을 피하기 위해 time.sleep() 을 충분히 걸었습니다. 링크를 먼저 긁어오고 본문을 긁어오기 때문에,
 
 데이터 수집 기간이 굉장히 오래 걸립니다. 대신 성능은 확실하니 시간 충분히 잡으시고 며칠 걸린다 생각하고 각오하십쇼.
+
+func.py파일의 22번째 라인에 있는 크롬 드라이버 경로를 알맞게 수정해서 사용하십쇼.
 ### Set up
 
     git clone git@github.com:DDalaDDula/NIFoS_Textdata_Analysis.git

@@ -19,7 +19,7 @@ def basic_crawling(year, month, days, query_text):
     chrome_options.add_argument("--disable-dev-shm-usage")
     #chrome_options.add_argument('headless') # 창 숨기기
     global driver
-    driver = webdriver.Chrome(executable_path ='./module/chromedriver_win32/chromedriver.exe',options = chrome_options)
+    driver = webdriver.Chrome(executable_path ='./module/chromedriver_win32/chromedriver.exe',options = chrome_options) # 크롬 드라이버 주소 수정
     driver.get("https://www.naver.com/")
     driver.implicitly_wait(10)
     time.sleep(2)
