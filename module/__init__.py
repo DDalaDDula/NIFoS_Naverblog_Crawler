@@ -5,7 +5,7 @@ def run_crawler(start_year, finish_year, query_text):  # 시작년도 ~ 최종�
     # 디렉토리 생성 함수
     def create_directory(path):
         if not os.path.exists(path):
-            os.makedirs(path)
+            os.makedirs(path, exist_ok=True)
     # 연도,월별 디렉토리를 생성할 경로 설정
     dataset_directory = os.path.join("./", "crawling_dataset") # 크롤링된 데이터를 저장하는 디렉토리 생성
     create_directory(dataset_directory)
